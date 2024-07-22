@@ -9,32 +9,37 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {
+  Timeline,
+  TimelineContent,
+  TimelineDot,
+  TimelineHeading,
+  TimelineItem,
+  TimelineLine,
+} from '@/components/ui/timeline';
+
 import { Separator } from '@/components/ui/separator';
 import { Phone } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 const images = [
   {
-    image:'/image-1.png',
-    name:'Rex Maasai',
+    image: '/image-1.png',
+    name: 'Rex Maasai',
   },
   {
-    image:'/image-2.png',
-    name:'Rex Maasai',
+    image: '/image-2.png',
+    name: 'Rex Maasai',
   },
   {
-    image:'/image-2.png',
-    name:'Rex Maasai',
+    image: '/image-2.png',
+    name: 'Rex Maasai',
   },
-]
+];
 
 const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
-  console.log(decodeURIComponent(kenya).replaceAll('+', ' '));
   const username = decodeURIComponent(kenya).replaceAll('+', ' ');
   const person = persons.find((person) => person.name === username);
-  console.log(person);
   return (
     <div className='mt-8 px-32 min-h-screen'>
       <Container>
@@ -50,9 +55,13 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
             {person?.name ?? ''}
           </Link>
         </div>
-        <div className='grid grid-cols-7 gap-8'>
+        <div className='grid grid-cols-7 gap-8 mt-10'>
           <div className='w-full col-span-4'>
-            <HeroImage src={person?.image} alt={person?.name} className='h-[52dvh]' />
+            <HeroImage
+              src={person?.image}
+              alt={person?.name}
+              className='h-[52dvh]'
+            />
             <div className='mt-6 space-y-3'>
               <h1 className='text-[#1E1E1E] font-grotesk-roman'>
                 Brief of what happened{' '}
@@ -74,26 +83,50 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
               </h1>
               <div className='grid grid-cols-3 '>
                 {images.map((image, idx) => (
-                <HeroImage key={idx} src={image.image} alt={image.name} className='h-[14.23dvh] w-[12.7dvw]'/>
+                  <HeroImage
+                    key={idx}
+                    src={image.image}
+                    alt={image.name}
+                    className='h-[14.23dvh] w-[12.7dvw]'
+                  />
                 ))}
               </div>
               <div className=' space-y-1.5 pt-2'>
                 <div className=' text-xs text-[#595D62]'>
                   <span className=' font-grotesk'>Posted by </span>
-                  <span className=' font-grotesk-roman underline underline-offset-2'>Lewis Kori</span>
+                  <span className=' font-grotesk-roman underline underline-offset-2'>
+                    Lewis Kori
+                  </span>
                 </div>
                 <div className='text-xs text-[#595D62]'>
                   <span className=' font-grotesk'>Approved by </span>
-                  <span className='font-grotesk-roman underline underline-offset-2'>Lewis Kori</span>
+                  <span className='font-grotesk-roman underline underline-offset-2'>
+                    Muhu Njenga
+                  </span>{' '}
                   <span>12:25 pm, 25th June 2024</span>
                 </div>
               </div>
               <Separator className=' bg-[#DCDCDC]' />
 
               <div className='mt-6 space-y-3'>
-              <h1 className='text-[#1E1E1E] font-grotesk-roman'>
-                Timeline
-              </h1>
+                <h1 className='text-[#1E1E1E] font-grotesk-roman'>Timeline</h1>
+                <Timeline>
+                  <TimelineItem status='done'>
+                    <TimelineHeading className='font-grotesk text-[#595D62] text-xs'><span className='font-grotesk-roman font-medium'>Abducted,</span> 12:21 am, 25th June 2024 </TimelineHeading>
+                    <TimelineDot status='abducted' />
+                    <TimelineLine done />
+                    <TimelineContent className='font-grotesk text-[#595D62] text-xs'>
+                    <span className='font-grotesk-roman font-medium'>Location:</span> Kasarani Police Station
+                    </TimelineContent>
+                  </TimelineItem>
+                  <TimelineItem>
+                  <TimelineHeading className='font-grotesk text-[#595D62] text-sm'><span className='font-grotesk-roman font-medium'>Released,</span> 12:21 am, 25th June 2024 </TimelineHeading>
+                    <TimelineDot  status={'released'}/>
+                    <TimelineContent className='font-grotesk text-[#595D62] text-xs'>
+                    <span className='font-grotesk-roman font-medium'>Location:</span> Kasarani Police Station
+                    </TimelineContent>
+                  </TimelineItem>
+                </Timeline>
               </div>
             </div>
           </div>
