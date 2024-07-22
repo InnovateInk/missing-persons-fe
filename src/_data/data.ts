@@ -41,7 +41,7 @@ export const persons: personProps[] = [
     age: 30,
     status: 'abducted',
     location: 'CBD Nairobi',
-    image: '/ogunda.png',
+    image: '/otero.png',
     date: '25th June 2024',
   },
   {
