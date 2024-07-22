@@ -7,7 +7,7 @@ export type personProps = {
   date: string;
   image: string;
 };
-export const persons = [
+export const persons: personProps[] = [
   {
     id: 1,
     name: 'Rex Maasai',
