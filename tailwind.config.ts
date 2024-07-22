@@ -18,6 +18,14 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        grotesk: ['var(--font-grotesk)'],
+        'grotesk-roman': ['var(--font-grotesk-roman)'],
+        'tobias-regular': ['var(--font-tobias-regular)'],
+        'tobias-medium': ['var(--font-tobias-medium)'],
+        'watchword-bold': ['var(--font-watchword-bold)'],
+        barlow: ['var(--font-barlow)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
