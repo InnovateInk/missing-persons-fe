@@ -62,7 +62,7 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
               alt={person?.name}
               className='h-[52dvh]'
             />
-            <div className='mt-6 space-y-3'>
+            <div className='mt-6 space-y-3 '>
               <h1 className='text-[#1E1E1E] font-grotesk-roman'>
                 Brief of what happened{' '}
               </h1>
@@ -130,7 +130,7 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
               </div>
             </div>
           </div>
-          <div className='col-span-5 md:col-span-3'>
+          <div className='col-span-5 md:col-span-3 order-first md:order-last'>
             <Card className='border-[#DCDCDC] rounded-2xl shadow-none'>
               <CardHeader className='flex flex-row  gap-6'>
                 <CardTitle className=' font-tobias-medium text-[28px] font-medium'>

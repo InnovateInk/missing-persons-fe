@@ -12,7 +12,7 @@ const SearchArea = () => {
     <Container>
       <div className='w-full py-6 flex justify-between flex-col-reverse md:flex-row gap-y-4'>
         <div className='flex w-full md:w-3/4  items-center h-full gap-4 '>
-          <div className='flex gap-2 border border-[#DCDCDC] w-full py-1.5 md:py-2.5 rounded-[32px] items-center h-full px-7'>
+          <div className='flex gap-2 border border-[#DCDCDC] w-full py-1.5 md:py-2.5 rounded-[32px] items-center h-full px-7 '>
             <Search strokeWidth={1.5} />
             <Input
               placeholder='Who are you looking for?'
@@ -23,7 +23,7 @@ const SearchArea = () => {
             Find the hero
           </Button>
         </div>
-        <div className='flex w-full justify-end'>
+        <div className='flex w-full md:w-auto justify-end'>
           <Dialog>
             <DialogTrigger asChild>
               <Button className=' rounded-none h-full py-4 md:py-5 bg-[#1E1E1E] px-10 gap-2 font-grotesk'>
