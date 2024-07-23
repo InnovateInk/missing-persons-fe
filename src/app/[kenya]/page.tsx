@@ -41,7 +41,7 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
   const username = decodeURIComponent(kenya).replaceAll('+', ' ');
   const person = persons.find((person) => person.name === username);
   return (
-    <div className='mt-8 px-32 min-h-screen'>
+    <div className='my-8 md:px-10 xl:px-32 min-h-screen '>
       <Container>
         <div className=' text-sm'>
           <Link href={'/'} className=' text-[#595D62]'>
@@ -55,8 +55,8 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
             {person?.name ?? ''}
           </Link>
         </div>
-        <div className='grid grid-cols-7 gap-8 mt-10'>
-          <div className='w-full col-span-4'>
+        <div className='grid grid-cols-1 md:grid-cols-7 gap-8 mt-10'>
+          <div className='w-full col-span-5 md:col-span-4'>
             <HeroImage
               src={person?.image}
               alt={person?.name}
@@ -81,13 +81,13 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
               <h1 className='text-[#1E1E1E] font-grotesk-roman'>
                 Images / videos of what happened{' '}
               </h1>
-              <div className='grid grid-cols-3 '>
+              <div className='grid grid-cols-3 w-full gap-2 '>
                 {images.map((image, idx) => (
                   <HeroImage
                     key={idx}
                     src={image.image}
                     alt={image.name}
-                    className='h-[14.23dvh] w-[12.7dvw]'
+                    className='h-[14.23dvh] md:w-[12.7dvw]'
                   />
                 ))}
               </div>
@@ -130,7 +130,7 @@ const singlePerson = ({ params: { kenya } }: { params: { kenya: string } }) => {
               </div>
             </div>
           </div>
-          <div className='col-span-3'>
+          <div className='col-span-5 md:col-span-3'>
             <Card className='border-[#DCDCDC] rounded-2xl shadow-none'>
               <CardHeader className='flex flex-row  gap-6'>
                 <CardTitle className=' font-tobias-medium text-[28px] font-medium'>

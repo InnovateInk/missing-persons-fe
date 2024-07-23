@@ -16,8 +16,8 @@ const Navbar = () => {
     </nav>  
      
     </Container>
-    <div className='bg-[#029099] h-[48px] w-full flex items-center justify-center'>
-          <p className='font-medium text-background text- font-barlow'>The people listed here have been confirmed by volunteer modulators  </p>
+    <div className='bg-[#029099] h-[48px] w-full flex items-center justify-center px-4  text-center'>
+          <p className='font-medium text-background text-sm md:text-base md:text-center font-barlow'>The people listed here have been confirmed by volunteer modulators  </p>
       </div>
     </>
   )

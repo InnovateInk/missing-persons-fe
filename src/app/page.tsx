@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <div className=' w-full'>
       <Container>
-        <div className='w-full flex mt-6 justify-end  '>
-          <div className=' space-y-2.5'>
+        <div className='w-full flex mt-6 md:justify-end  '>
+          <div className=' flex flex-row items-center md:items-start md:flex-col space-y-2.5'>
             <label className='text-[#1E1E1E] font-grotesk-roman px-2 text-base'>
               Filter by county
             </label>
@@ -38,7 +38,7 @@ export default function Home() {
             </Select>
           </div>
         </div>
-        <div className=' max-w-[40rem] text-sm font-grotesk text-[#595D62]'>
+        <div className=' max-w-[40rem] text-sm font-grotesk text-[#595D62] pt-6 md:pt-0'>
           <p>
             The following people we either , arrested, abducted or killed during
             the Gen-Z drain the swamp. Where these youths nothing other than

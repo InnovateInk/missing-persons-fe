@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import kenyanFlag from '../../../public/kenyan-flag.svg';
 import { Button } from '../ui/button';
-import { DialogContent } from '../ui/dialog';
+import { DialogContent, DialogHeader, DialogTitle } from '../ui/dialog';
 import { Input } from '../ui/input';
 import {
   Select,
@@ -56,12 +56,15 @@ const SearchForm = () => {
     console.log(values);
   }
   return (
-    <DialogContent className=' max-w-[59rem] max-h-full grid grid-cols-5 p-3 rounded-none '>
-      <div className='overflow-hidden col-span-2'>
+    <DialogContent className=' max-w-[59rem] min-h-screen md:min-h-fit max-h-full grid grid-cols-1 md:grid-cols-5 p-3 rounded-none '>
+      <div className='overflow-hidden hidden md:block col-span-2'>
         <Image src={kenyanFlag} alt={'Kenyan Flag'} />
       </div>
       <div className=' col-span-3 mt-2'>
-        <h1 className=' font-tobias-regular'>Report a missing person</h1>
+        <DialogHeader>
+          <DialogTitle>    <h1 className=' font-tobias-regular'>Report a missing person</h1></DialogTitle>
+        </DialogHeader>
+     
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
             <div className='grid grid-cols-5 gap-4 mt-4'>
