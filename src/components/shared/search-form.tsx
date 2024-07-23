@@ -56,20 +56,20 @@ const SearchForm = () => {
     console.log(values);
   }
   return (
-    <DialogContent className=' max-w-3xl max-h-full grid grid-cols-5 p-2 '>
-      <div className='overflow-hidden col-span-2 border'>
-        <Image src={kenyanFlag} alt={''} />
+    <DialogContent className=' max-w-[59rem] max-h-full grid grid-cols-5 p-3 rounded-none '>
+      <div className='overflow-hidden col-span-2'>
+        <Image src={kenyanFlag} alt={'Kenyan Flag'} />
       </div>
-      <div className=' col-span-3'>
-        <h1>Report a missing person</h1>
+      <div className=' col-span-3 mt-2'>
+        <h1 className=' font-tobias-regular'>Report a missing person</h1>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-            <div className='grid grid-cols-3 gap-4'>
+          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
+            <div className='grid grid-cols-5 gap-4 mt-4'>
               <FormField
                 control={form.control}
                 name='username'
                 render={({ field }) => (
-                  <FormItem className='col-span-2'>
+                  <FormItem className='col-span-3'>
                     <FormLabel>
                       Full name <span className='text-[#B20000]'>*</span>
                     </FormLabel>
@@ -89,7 +89,7 @@ const SearchForm = () => {
                 control={form.control}
                 name='username'
                 render={({ field }) => (
-                  <FormItem className='col-span-1'>
+                  <FormItem className='col-span-2'>
                     <FormLabel>
                       Age<span className='text-[#B20000]'>*</span>
                     </FormLabel>
@@ -119,8 +119,8 @@ const SearchForm = () => {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className=' rounded-none h-[6.5dvh]'>
-                        <SelectValue placeholder='Select status' />
+                      <SelectTrigger className=' rounded-none h-[6.5dvh] font-grotesk'>
+                        <SelectValue className=' font-grotesk' placeholder='Select their status' />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -137,28 +137,7 @@ const SearchForm = () => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name='username'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Brief explanation of what transpired
-                    <span className='text-[#B20000]'>*</span>
-                  </FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder='Tell us a little bit about yourself'
-                      className='resize-none'
-                      {...field}
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <div className='flex w-full gap-4'>
+              <div className='flex w-full gap-4'>
               <FormField
                 control={form.control}
                 name='datetime'
@@ -174,7 +153,7 @@ const SearchForm = () => {
                           <Button
                             variant={'outline'}
                             className={cn(
-                              'w-full font-normal',
+                              'w-full font-normal font-grotesk h-[6.5dvh] rounded-none',
                               !field.value && 'text-muted-foreground'
                             )}
                           >
@@ -202,10 +181,9 @@ const SearchForm = () => {
                             field.onChange(selectedDate);
                           }}
                           onDayClick={() => setIsOpen(false)}
-                          fromYear={2000}
+                          fromYear={2024}
                           toYear={new Date().getFullYear()}
                           disabled={(date) =>
-                            Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
                             Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
                           }
                         />
@@ -219,7 +197,7 @@ const SearchForm = () => {
                 control={form.control}
                 name='datetime'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col'>
+                  <FormItem className='flex flex-col '>
                     <FormLabel>Time</FormLabel>
                     <FormControl>
                       <Select
@@ -239,7 +217,7 @@ const SearchForm = () => {
                         }}
                         // open={open}
                       >
-                        <SelectTrigger className='font-normal focus:ring-0 w-[120px] mt-4 mr-2'>
+                        <SelectTrigger className='font-normal focus:ring-0 w-[120px] mt-4 mr-2 font-grotesk h-[6.5dvh] rounded-none'>
                           <SelectValue />
                         </SelectTrigger>
                         <div>
@@ -271,8 +249,71 @@ const SearchForm = () => {
                 )}
               />
             </div>
+            <FormField
+              control={form.control}
+              name='username'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    Brief explanation of what transpired
+                    <span className='text-[#B20000]'>*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder='Tell us a little bit about yourself'
+                      className='resize-none rounded-none'
+                      {...field}
+                    />
+                  </FormControl>
 
-            <Button type='submit'>Submit</Button>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          <div className='grid grid-cols-5 gap-4'>
+              <FormField
+                control={form.control}
+                name='username'
+                render={({ field }) => (
+                  <FormItem className='col-span-3'>
+                    <FormLabel>
+                      Your name <span className='text-[#B20000]'>*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='Enter your name '
+                        {...field}
+                        className=' focus-visible:ring-0 rounded-none h-[6.5dvh]'
+                      />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='username'
+                render={({ field }) => (
+                  <FormItem className='col-span-2'>
+                    <FormLabel>
+                    Your X / twitter handle url<span className='text-[#B20000]'>*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='https://'
+                        {...field}
+                        className=' rounded-none h-[6.5dvh]'
+                      />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <Button className='w-full rounded-none py-8' type='submit'>Submit report</Button>
           </form>
         </Form>
       </div>
